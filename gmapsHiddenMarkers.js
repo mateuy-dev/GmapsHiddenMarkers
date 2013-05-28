@@ -78,7 +78,7 @@ my.ggmaps.DirectionMarker.prototype._initView = function(){
 	this.$img=$('<img style="position: absolute; left: 0px; top: 0px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 34px; height: 30px;" src="'+imagePath+'" draggable="false">');
 	this.$figure =$("<div style='z-index: 999; position:fixed; opacity:0'></div>");
 	this.$figure.append(this.$img);
-	$("#content").prepend(this.$figure);
+	$(this.options.map.getDiv()).parent().prepend(this.$figure);
 }
 
 // ###DirectionMarker._updateView
@@ -101,8 +101,8 @@ my.ggmaps.DirectionMarker.prototype._updateView = function(){
 	var iconSize = this.options.icon_size;
 
 	var direction=my.ggmaps.getDirectionVector(map, new google.maps.LatLng(marker.latitude,marker.longitude));
-	var height = $("#map").height();
-	var width = $("#map").width();
+	var height = $(this.options.map.getDiv()).height();
+	var width = $(this.options.map.getDiv()).width();
 	var halfHeight = height/2.0;
 	var halfWidth = width/2.0;
 

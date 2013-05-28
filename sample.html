@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple markers</title>
+    <link href="https://google-developers.appspot.com/maps/documentation/javascript/examples/default.css" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script src="mathFunctions.js"></script>
+    <script src="gmapsHiddenMarkers.js"></script>
+    <script>
+function initialize() {
+  var lat=-25.363882;
+  var lng=131.044922;
+  var myLatlng = new google.maps.LatLng(lat,lng);
+  var mapOptions = {
+    zoom: 4,
+    center: myLatlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+  //Draw in marker
+  var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'Hello World!'
+  });
+  var options = {
+  	map: map,
+	position: {latitude: lat, longitude:lng},
+	icon: "img/bubble.png",
+	icon_NE: "img/bubble_top.png",
+	icon_size: [34, 30]
+  };
+  var hiddenMarker = new my.ggmaps.DirectionMarker(options);
+
+  //draw out marker
+  var lat2=-5;
+  var lng2=110;
+  var myLatlng2 = new google.maps.LatLng(lat2,lng2);
+  var marker2 = new google.maps.Marker({
+      position: myLatlng2,
+      map: map,
+      title: 'Hello World!'
+  });
+  var options2 = {
+  	map: map,
+	position: {latitude: lat2, longitude:lng2},
+	icon: "img/bubble.png",
+	icon_NE: "img/bubble_top.png",
+	icon_size: [34, 30]
+  };
+  var hiddenMarker2 = new my.ggmaps.DirectionMarker(options2);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+  </body>
+</html>
