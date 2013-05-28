@@ -3,7 +3,7 @@
 //     (c) 2013 Mateu Yábar
 //     GmapsHiddenMarkers may be freely distributed under the MIT license.
 //     For all details and documentation:
-//     XXXXX
+//     http://www.parkit.cat
 
 // Package definition
 // -------------
